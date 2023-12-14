@@ -1,0 +1,6 @@
+*.mat
+*.csv
+*.png
+*.parquet
+*.pickle
+heil_hitler.ipynb
