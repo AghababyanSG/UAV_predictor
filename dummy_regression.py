@@ -7,7 +7,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
-file_path = 'archive/sample.csv'
+file_path = 'archive/data_2m.csv'
 df = pd.read_csv(file_path)
 
 # Splitting the data into train, validation, and test sets
