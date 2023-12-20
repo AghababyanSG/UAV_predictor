@@ -3,4 +3,5 @@
 *.png
 *.parquet
 *.pickle
+*.txt
 heil_hitler.ipynb

@@ -3,7 +3,6 @@ import random
 import scipy.io
 import numpy as np
 import pandas as pd
-# import matplotlib.pyplot as plt
 import pyarrow as pa
 import pyarrow.parquet as pq
 import csv
@@ -31,7 +30,6 @@ def files_into_df(quantity=100, type=2):
     df = pd.DataFrame()
     i = 0
     for mat in mats:
-        print(i)
         i += 1
         data = mat['sig1']
         single_column = pd.DataFrame(data)
@@ -42,6 +40,15 @@ def files_into_df(quantity=100, type=2):
 
 
 def file_into_df_column(file_path):
+    """_summary_
+
+    Args:
+        file_path (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
     mat = scipy.io.loadtmat(os.path.join(file_path))
     return pd.DataFrame(mat['sig1'])
 
@@ -90,7 +97,8 @@ def count_files_in_directory(folder_path):
 
 
 def data_to_csv():
-    # path = f'archive/Indoor_signals_1m/{type}_58G_1m'
+    """Saves the needed data into a CSV file
+    """
 
     for type_val in range(2, 5):
 
@@ -128,12 +136,13 @@ def data_to_csv():
 
 
 def column_name(path):
-    df=pd.read_csv(path)
+    df = pd.read_csv(path)
     cols = len(df.axes[1])
-    colum=[f"{i}" for i in range(cols-1)]
+    colum = [f"{i}" for i in range(cols-1)]
     colum.append("type")
-    df.columns=colum
+    df.columns = colum
     df.to_csv('archive/data_2m.csv')
+
 
 if __name__ == '__main__':
     data_to_csv()
